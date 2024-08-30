@@ -1,0 +1,16 @@
+.banner {
+    padding: 60px;
+    background: lightblue;
+    color: black;
+    font-size: 30px;
+    margin-top: 0%;
+  }
+#centered {
+    text-align: center;
+}
+#left{
+    text-align: left;
+}
+#right{
+    text-align: right;
+}

@@ -1,10 +1,39 @@
 .banner {
-    padding: 60px;
-    background: lightblue;
+    padding: 5px;
+    background-color: lightblue;
+    background-size: cover;
+    background-repeat:no-repeat;
     color: black;
-    font-size: 30px;
-    margin-top: 0%;
+    font-size: 20px;
+    margin-bottom: 10px;
+
   }
+
+  .about {
+    background-color: lightblue;
+    padding: 5pxpx;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center; /* Centers the content within the section */
+    margin-bottom: 10px;  
+}
+
+.about-content {
+    display: inline-flex; /* Centers the content and aligns the image with the text */
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adds space between the image and the text */
+    max-width: 100%; /* Limits the width of the content */
+    margin: 0 auto; /* Centers the content horizontally */
+    text-align: left; /* Aligns text to the left within the content */
+}
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
 #centered {
     text-align: center;
 }
@@ -13,4 +42,56 @@
 }
 #right{
     text-align: right;
+}
+nav ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+nav li a {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: maroon;
+    font-size: 30px;
+    text-decoration: none;
+    
+}
+
+nav li a:hover {
+    color: #dd5771;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1509114397022-ed747cca3f65?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center top;   
+}
+
+.links {
+    background-color: lightblue;
+    padding: 5px;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center; /* Centers the section heading */
+}
+
+.links-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the logos horizontally */
+    gap: 160px; /* Adjusts the spacing between the logos */
+    max-width: 100%; /* Allows content to take full width */
+    margin: 0 auto; /* Centers the content within the container */
+}
+
+.link-pic {
+    width: 100px; /* Adjusts the size of the logos */
+    height: auto; /* Maintains the aspect ratio of the logos */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: transform 0.3s; /* Adds a smooth scaling effect on hover */
+}
+
+.link-pic:hover {
+    transform: scale(1.1); /* Slightly enlarges the logo on hover */
 }

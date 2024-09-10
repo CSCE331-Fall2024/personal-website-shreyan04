@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link id="stylesheet" rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Shreyan Satheesh</title>
 </head>
 <body>
 
-    <div class = "banner">
+    <div class="banner">
         <a href="index.html">
-            <h1  id = "centered">Shreyan Satheesh</h1>
+            <h1 id="centered">Shreyan Satheesh</h1>
         </a>
         <nav>
             <ul>
@@ -23,12 +23,13 @@
                 <li></li>
             </ul>
         </nav>
+        <button id="toggleButton" class="toggle-btn">Switch Style</button>
     </div>
 
     <div class="about">
         <h2 style="padding-top: 1%;">About Me</h2>
         <div class="about-content">
-            <img src="imgs/Headshot.png" alt="Shreyan Satheesh" class="profile-pic">
+            <img src="imgs/Headshot.png" alt="Shreyan Satheesh" class="profile-pic" id = "prof">
             <p>I'm a passionate rising Software Engineer with a strong foundation in computer science and a keen interest in solving complex problems through innovative software solutions. Throughout my career and education, I’ve worked on diverse projects ranging from mobile apps to large-scale web applications. I thrive in collaborative environments, where I can contribute to team success while continuing to learn and grow. Beyond coding, I am a semi professional cricketer and compete on a national level in the Minor League Cricket Championship. I also enjoy tackling new topics and over the last few months it has been day trading, a skill I hope to develop in the near future.</p>
         </div>
     </div>
@@ -57,6 +58,61 @@
             </a>
         </div>
     </div>
+
+    <script>
+        // Function to switch the stylesheet
+
+    function switchPic() {
+            const pic = document.getElementById("prof");
+            const currPic = localStorage.getItem("pic");
+
+            if (currPic === "imgs/Headshot.png" || !currPic) {
+                pic.setAttribute("src", "imgs/2ndPic.png");
+                localStorage.setItem("pic", "imgs/2ndPic.png");
+            } else {
+                pic.setAttribute("src", "imgs/Headshot.png");
+                localStorage.setItem("pic", "imgs/Headshot.png");
+            }
+    }
+        function switchStylesheet() {
+            const stylesheet = document.getElementById("stylesheet");
+            const currentStyle = localStorage.getItem("stylesheet");
+
+            if (currentStyle === "style.css") {
+                stylesheet.setAttribute("href", "NewStyle.css");
+                localStorage.setItem("stylesheet", "NewStyle.css");
+            } else {
+                stylesheet.setAttribute("href", "style.css");
+                localStorage.setItem("stylesheet", "style.css");
+            }
+            switchPic();  // Ensure the image is switched after the stylesheet
+        }
+
+        // Event listener for the toggle button
+        document.getElementById("toggleButton").addEventListener("click", switchStylesheet);
+
+        // On page load, set the stylesheet based on localStorage
+    window.onload = function() {
+        const stylesheet = document.getElementById("stylesheet");
+        const savedStyle = localStorage.getItem("stylesheet");
+        
+        if (savedStyle) {
+            stylesheet.setAttribute("href", savedStyle);
+        } else {
+            localStorage.setItem("stylesheet", "style.css");
+        }
+
+        const pic = document.getElementById("prof");
+        const savedPic = localStorage.getItem("pic");
+
+        if (savedPic) {
+            pic.setAttribute("src", savedPic);  // Correctly setting the image src based on localStorage
+        } else {
+            localStorage.setItem("pic", "imgs/Headshot.png");
+            pic.setAttribute("src", "imgs/Headshot.png");
+        }
+    };
+    </script>
 
 </body>
 </html>

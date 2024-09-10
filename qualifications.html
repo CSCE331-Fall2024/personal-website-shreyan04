@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link id="stylesheet" rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Qualifications - Shreyan Satheesh</title>
 </head>
@@ -23,6 +23,7 @@
                 <li></li>
             </ul>
         </nav>
+        <button id="toggleButton" class="toggle-btn">Switch Style</button>
     </div>
 
     <div class="about">
@@ -30,23 +31,44 @@
         
         <!-- Embedded Resume -->
         <div id="centered">
-            <iframe src="imgs/resume.pdf" width="80%" height="600px" style="border:none; background-color: lightblue;"></iframe>
+            <iframe src="https://drive.google.com/file/d/1Og46zuyhWiDM7nvezNWu0cMjsCcqufdH/preview" width="80%" height="600px" style="border:none; background-color: lightblue;"></iframe>
         </div>
         
-        <p id="centered">Download:<a href="imgs/resume.pdf" download> Shreyan Satheesh</a>.</p>
+        <p id="centered" id="list">Download:<a href="imgs/resume.pdf" download> Shreyan Satheesh</a>.</p>
     </div>
 
     <div class="about">
         <h2 id="centered">Technical Skills</h2>
         <div class="about-content">
             <p>I have gained proficiency in several programming languages, databases, cloud platforms, and development tools. These skills have been honed through coursework, personal projects, and internships.</p>
-            <div><i class="fas fa-code"></i> <strong>Programming Languages:</strong> Python, Java, C++, JavaScript, HTML, CSS</div>
-            <div><i class="fas fa-database"></i> <strong>Databases:</strong> MySQL, Excel, Access</div>
-            <div><i class="fas fa-cloud"></i> <strong>Cloud Platforms:</strong> Google Cloud, AWS</div>
-            <div><i class="fas fa-laptop-code"></i> <strong>Tools & Frameworks:</strong> Git, PyTorch, TensorFlow</div>
+            <div>
+                <i class="fas fa-code"></i> <strong>Programming Languages:</strong> 
+                <a href="https://www.python.org/doc/" target="_blank"id = "list">Python</a>, 
+                <a href="https://docs.oracle.com/javase/8/docs/" id = "list"target="_blank">Java</a>, 
+                <a href="https://en.cppreference.com/w/" id = "list"target="_blank">C++</a>, 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" id = "list"target="_blank">JavaScript</a>, 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" id = "list"target="_blank">HTML</a>, 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" id = "list"target="_blank">CSS</a>
+            </div>
+            <div>
+                <i class="fas fa-database"></i> <strong>Databases:</strong> 
+                <a href="https://dev.mysql.com/doc/" id = "list"target="_blank">MySQL</a>, 
+                <a href="https://support.microsoft.com/en-us/excel" id = "list"target="_blank">Excel</a>, 
+                <a href="https://support.microsoft.com/en-us/access" id = "list"target="_blank">Access</a>
+            </div>
+            <div>
+                <i class="fas fa-cloud"></i> <strong>Cloud Platforms:</strong> 
+                <a href="https://cloud.google.com/docs" target="_blank" id = "list">Google Cloud</a>, 
+                <a href="https://docs.aws.amazon.com/" target="_blank">AWS</a>
+            </div>
+            <div>
+                <i class="fas fa-laptop-code"></i> <strong>Tools & Frameworks:</strong> 
+                <a href="https://git-scm.com/doc" target="_blank"id = "list">Git</a>, 
+                <a href="https://pytorch.org/docs/stable/index.html" id = "list"target="_blank">PyTorch</a>, 
+                <a href="https://www.tensorflow.org/overview" id = "list"target="_blank">TensorFlow</a>
+            </div>
         </div>
     </div>
-
     <div class="about">
         <h2 id="centered">Technical Interests</h2>
         <div class="about-content">
@@ -55,6 +77,38 @@
             <div><i class="fas fa-lock"></i> <strong>Cybersecurity:</strong> Passionate about developing secure systems that protect sensitive information from threats.</div>
         </div>
     </div>
+
+
+    <script>
+        // Function to switch the stylesheet
+        function switchStylesheet() {
+            const stylesheet = document.getElementById("stylesheet");
+            const currentStyle = localStorage.getItem("stylesheet");
+
+            if (currentStyle === "style.css") {
+                stylesheet.setAttribute("href", "NewStyle.css");
+                localStorage.setItem("stylesheet", "NewStyle.css");
+            } else {
+                stylesheet.setAttribute("href", "style.css");
+                localStorage.setItem("stylesheet", "style.css");
+            }
+        }
+
+        // Event listener for the toggle button
+        document.getElementById("toggleButton").addEventListener("click", switchStylesheet);
+
+        // On page load, set the stylesheet based on localStorage
+        window.onload = function() {
+            const stylesheet = document.getElementById("stylesheet");
+            const savedStyle = localStorage.getItem("stylesheet");
+
+            if (savedStyle) {
+                stylesheet.setAttribute("href", savedStyle);
+            } else {
+                localStorage.setItem("stylesheet", "style.css");
+            }
+        };
+    </script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Shreyan Satheesh</title>
-    <link rel="stylesheet" href="style.css">
+    <link id="stylesheet" rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -23,6 +23,7 @@
                 <li></li>
             </ul>
         </nav>
+        <button id="toggleButton" class="toggle-btn">Switch Style</button>
     </div>
 
     <div class="about">
@@ -44,6 +45,38 @@
             <p>During Hurricane Beryl, I volunteered to distribute essential supplies to those affected by the storm. This involved organizing and handing out food, water, and other necessities to ensure that individuals and families had access to vital resources during the emergency. My efforts were part of a broader community response aimed at providing immediate relief and support to those in need, reflecting my commitment to helping others in times of crisis. This experience reinforced the importance of community solidarity and the impact of collective action in overcoming challenges.</p>
         </div>
     </div>
+
+
+    <script>
+        // Function to switch the stylesheet
+        function switchStylesheet() {
+            const stylesheet = document.getElementById("stylesheet");
+            const currentStyle = localStorage.getItem("stylesheet");
+
+            if (currentStyle === "style.css") {
+                stylesheet.setAttribute("href", "NewStyle.css");
+                localStorage.setItem("stylesheet", "NewStyle.css");
+            } else {
+                stylesheet.setAttribute("href", "style.css");
+                localStorage.setItem("stylesheet", "style.css");
+            }
+        }
+
+        // Event listener for the toggle button
+        document.getElementById("toggleButton").addEventListener("click", switchStylesheet);
+
+        // On page load, set the stylesheet based on localStorage
+        window.onload = function() {
+            const stylesheet = document.getElementById("stylesheet");
+            const savedStyle = localStorage.getItem("stylesheet");
+
+            if (savedStyle) {
+                stylesheet.setAttribute("href", savedStyle);
+            } else {
+                localStorage.setItem("stylesheet", "style.css");
+            }
+        };
+    </script>
 
 
 </body>
